@@ -25,11 +25,14 @@ public class ProblemSet5 {
       String text;
       int n;
       String target;
+      char suffix;
+      int count = 0;
 
       // System.out.println("\nExercise 1: " + ps.surroundMe("nicole", "boat"));
       // System.out.println("\nExercise 2: " + ps.endsMeet("UCVTS", 2));
       // System.out.println("\nExercise 3: " + ps.middleMan("NICOLEGIRON"));
-      System.out.println("\nExercise 4: " + ps.isCentered("NICOLEGIRON", "LEG"));
+      // System.out.println("\nExercise 4: " + ps.isCentered("NICOLEGIRON", "LEG"));
+      System.out.println("\nExercise 5: " + ps.countMe("ucvts is a school that strips away your happiness", 's'));
     }
 
     /*
@@ -118,9 +121,15 @@ public class ProblemSet5 {
      * Given a string and a character, compute the number of words that end in suffix.
      */
 
-    // public int countMe(String text, char suffix) {
-    //
-    // }
+    public int countMe(String text, char suffix) {
+      text = text.toLowerCase();
+      suffix = Character.toLowerCase(suffix);
+      if(suffix <= 'a' || suffix >= 'z' || text == null){
+        return -1;
+      }else{
+        return suffix;
+      }
+    }
 
     /*
      * Exercise 6.
