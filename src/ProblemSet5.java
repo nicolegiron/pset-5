@@ -26,7 +26,6 @@ public class ProblemSet5 {
       int n;
       String target;
       char suffix;
-      int count = 0;
 
       // System.out.println("\nExercise 1: " + ps.surroundMe("nicole", "boat"));
       // System.out.println("\nExercise 2: " + ps.endsMeet("UCVTS", 2));
@@ -124,12 +123,20 @@ public class ProblemSet5 {
     public int countMe(String text, char suffix) {
       text = text.toLowerCase();
       suffix = Character.toLowerCase(suffix);
+      String suffixString = String.valueOf(suffix);
+      int count = 0;
+      String words[] = text.split(" ");
       if(suffix <= 'a' || suffix >= 'z' || text == null){
         return -1;
       }else{
-        return suffix;
+        for(int i = 0; i < words.length; i++){
+          if(words[i].endsWith(suffixString)){
+            count++;
+          }
+        }
+        return count;
       }
-    }
+    } // ucvts is a school that strips away your happiness
 
     /*
      * Exercise 6.
