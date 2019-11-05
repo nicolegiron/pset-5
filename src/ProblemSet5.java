@@ -31,7 +31,8 @@ public class ProblemSet5 {
       // System.out.println("\nExercise 2: " + ps.endsMeet("UCVTS", 2));
       // System.out.println("\nExercise 3: " + ps.middleMan("NICOLEGIRON"));
       // System.out.println("\nExercise 4: " + ps.isCentered("NICOLEGIRON", "LEG"));
-      System.out.println("\nExercise 5: " + ps.countMe("ucvts is a school that strips away your happiness", 's'));
+      // System.out.println("\nExercise 5: " + ps.countMe("ucvts is a school that strips away your happiness", 's'));
+      System.out.println("\nExercise 6: " + ps.triplets("aaabcddd"));
     }
 
     /*
@@ -136,7 +137,7 @@ public class ProblemSet5 {
         }
         return count;
       }
-    } // ucvts is a school that strips away your happiness
+    }
 
     /*
      * Exercise 6.
@@ -144,9 +145,28 @@ public class ProblemSet5 {
      * Given a string, compute the number of triplets in text.
      */
 
-    // public int triplets(String text) {
-    //
-    // }
+    public int triplets(String text) {
+      char a;
+      char b;
+      char c;
+      int count = 0;
+      if(text==null){
+        return -1;
+      }else{
+        for(int i = 0; i < text.length(); i++){
+          a = text.charAt(i);
+          b = text.charAt(i+1);
+          c = text.charAt(i+2);
+          String sA = String.valueOf(a);
+          String sB = String.valueOf(b);
+          String sC = String.valueOf(c);
+          if(sA.equals(sB) && sB.equals(sC)){
+            count++;
+          }
+        }
+        return count;
+      }
+    }
 
     /*
      * Exercise 7.
