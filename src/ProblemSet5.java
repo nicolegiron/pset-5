@@ -33,7 +33,9 @@ public class ProblemSet5 {
       // System.out.println("\nExercise 4: " + ps.isCentered("NICOLEGIRON", "LEG"));
       // System.out.println("\nExercise 5: " + ps.countMe("ucvts is a school that strips away your happiness", 's'));
       // System.out.println("\nExercise 6: " + ps.triplets(null));
-      System.out.println("\nExercise 7: " + ps.addMe(null));
+      // System.out.println("\nExercise 7: " + ps.addMe(null));
+      // System.out.println("\nExercise 8: " + ps.sequence(null));
+      System.out.println("\nExercise 9: " + ps.intertwine("aceg", "bdfh"));
     }
 
     /*
@@ -198,9 +200,60 @@ public class ProblemSet5 {
      * Given a string, compute the length of the longest sequence.
      */
 
-    // public long sequence(String text) {
-    //
-    // }
+    public long sequence(String text) {
+      int count = 0;
+      double restart = 0;
+      int count2 = 0;
+      if(text==null){
+        return -1;
+      }else if(text.equals("")){
+        return count;
+      }else{
+        for(int i = 1; i < text.length(); i++){
+          char letter = text.charAt(i-1);
+          char letter2 = text.charAt(i);
+
+          if(restart == 0){
+            if(count==0){
+              if(letter==letter2){
+                count=2;
+              }else{
+              }
+            }else{
+              if(letter==letter2){
+                count++;
+              }else{
+                restart=1;
+                count2=0;
+              }
+            }
+          }else{
+            if(count2==0){
+              if(letter==letter2){
+                count2=2;
+              }else{
+              }
+            }else{
+              if(letter==letter2){
+                count2++;
+              }else{
+                if(count2>0){
+                  restart=0;
+                  count=0;
+                }
+              }
+            }
+          }
+        }
+        if(count==0 && count2==0){
+          return 1;
+        }else if(count>count2){
+          return count;
+        }else{
+          return count2;
+        }
+      }
+    }
 
     /*
      * Exercise 9.
@@ -209,9 +262,9 @@ public class ProblemSet5 {
      * characters of a and b.
      */
 
-    // public String intertwine(String a, String b) {
-    //
-    // }
+    public String intertwine(String a, String b) {
+
+    }
 
     /*
      * Exercise 10.
