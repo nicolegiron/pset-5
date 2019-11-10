@@ -32,7 +32,8 @@ public class ProblemSet5 {
       // System.out.println("\nExercise 3: " + ps.middleMan("NICOLEGIRON"));
       // System.out.println("\nExercise 4: " + ps.isCentered("NICOLEGIRON", "LEG"));
       // System.out.println("\nExercise 5: " + ps.countMe("ucvts is a school that strips away your happiness", 's'));
-      System.out.println("\nExercise 6: " + ps.triplets("aaabcddd"));
+      // System.out.println("\nExercise 6: " + ps.triplets(null));
+      System.out.println("\nExercise 7: " + ps.addMe(null));
     }
 
     /*
@@ -153,7 +154,7 @@ public class ProblemSet5 {
       if(text==null){
         return -1;
       }else{
-        for(int i = 0; i < text.length(); i++){
+        for(int i = 0; i < text.length()-2; i++){
           a = text.charAt(i);
           b = text.charAt(i+1);
           c = text.charAt(i+2);
@@ -174,9 +175,22 @@ public class ProblemSet5 {
      * Given a string, compute the sum of the digits in text.
      */
 
-    // public long addMe(String text) {
-    //
-    // }
+     public long addMe(String text) {
+       char a;
+       int sum = 0;
+       if(text==null){
+         return -1;
+       }else{
+         for(int i = 0; i < text.length(); i++){
+           a = text.charAt(i);
+           int aInt = Character.getNumericValue(a);
+           if(!Character.isAlphabetic(a) && aInt!=-1){
+             sum += aInt;
+           }
+         }
+         return sum;
+       }
+     }
 
     /*
      * Exercise 8.
