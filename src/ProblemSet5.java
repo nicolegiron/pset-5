@@ -27,15 +27,16 @@ public class ProblemSet5 {
       String target;
       char suffix;
 
-      // System.out.println("\nExercise 1: " + ps.surroundMe("nicole", "boat"));
-      // System.out.println("\nExercise 2: " + ps.endsMeet("UCVTS", 2));
-      // System.out.println("\nExercise 3: " + ps.middleMan("NICOLEGIRON"));
-      // System.out.println("\nExercise 4: " + ps.isCentered("NICOLEGIRON", "LEG"));
-      // System.out.println("\nExercise 5: " + ps.countMe("ucvts is a school that strips away your happiness", 's'));
-      // System.out.println("\nExercise 6: " + ps.triplets(null));
-      // System.out.println("\nExercise 7: " + ps.addMe(null));
-      // System.out.println("\nExercise 8: " + ps.sequence(null));
+      System.out.println("\nExercise 1: " + ps.surroundMe("abc", "123"));
+      System.out.println("\nExercise 2: " + ps.endsMeet("abc", -1));
+      System.out.println("\nExercise 3: " + ps.middleMan("a"));
+      System.out.println("\nExercise 4: " + ps.isCentered("abcdefg", "cd"));
+      System.out.println("\nExercise 5: " + ps.countMe("abc$ def$", '$'));
+      System.out.println("\nExercise 6: " + ps.triplets("abc"));
+      System.out.println("\nExercise 7: " + ps.addMe("123 abc 123"));
+      System.out.println("\nExercise 8: " + ps.sequence("abbcccdddd"));
       System.out.println("\nExercise 9: " + ps.intertwine("abc", "12345"));
+      System.out.println("\nExercise 10: " + ps.isPalindrome("Madam"));
     }
 
     /*
@@ -110,7 +111,7 @@ public class ProblemSet5 {
         char second = text.charAt(middleNum);
         char third = text.charAt(middleNum + 1);
         String threeChar = String.valueOf(first) + String.valueOf(second) + String.valueOf(third);
-        if(threeChar.equals(threeChar)){
+        if(threeChar.equals(target)){
           return true;
         }else{
           return false;
@@ -125,14 +126,14 @@ public class ProblemSet5 {
      */
 
     public int countMe(String text, char suffix) {
-      text = text.toLowerCase();
-      suffix = Character.toLowerCase(suffix);
-      String suffixString = String.valueOf(suffix);
-      int count = 0;
-      String words[] = text.split(" ");
       if(suffix <= 'a' || suffix >= 'z' || text == null){
         return -1;
       }else{
+        text = text.toLowerCase();
+        suffix = Character.toLowerCase(suffix);
+        String suffixString = String.valueOf(suffix);
+        int count = 0;
+        String words[] = text.split(" ");
         for(int i = 0; i < words.length; i++){
           if(words[i].endsWith(suffixString)){
             count++;
@@ -302,7 +303,20 @@ public class ProblemSet5 {
      * Given a string, determine whether or not it is a palindrome.
      */
 
-    // public boolean isPalindrome(String text) {
-    //
-    // }
+    public boolean isPalindrome(String text) {
+      String backwards = "";
+      if(text==null){
+        return false;
+      }else{
+        for(int i = text.length()-1; i >= 0; i--){
+          char a = text.charAt(i);
+          backwards += a;
+        }
+      }
+      if(text.equals(backwards)){
+        return true;
+      }else{
+        return false;
+      }
+    }
 }
