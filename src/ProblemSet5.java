@@ -35,7 +35,7 @@ public class ProblemSet5 {
       // System.out.println("\nExercise 6: " + ps.triplets(null));
       // System.out.println("\nExercise 7: " + ps.addMe(null));
       // System.out.println("\nExercise 8: " + ps.sequence(null));
-      System.out.println("\nExercise 9: " + ps.intertwine("aceg", "bdfh"));
+      System.out.println("\nExercise 9: " + ps.intertwine("abc", "12345"));
     }
 
     /*
@@ -263,7 +263,37 @@ public class ProblemSet5 {
      */
 
     public String intertwine(String a, String b) {
-
+      String finalS = "";
+      if(a==null || b==null){
+        return null;
+      }else{
+        int aLength = a.length();
+        int bLength = b.length();
+        if(aLength>bLength){
+          for(int i = 0; i < aLength; i++){
+            if(i<bLength){
+              char letter = a.charAt(i);
+              char letter2 = b.charAt(i);
+              finalS = finalS + letter + letter2;
+            }else{
+              char letter = a.charAt(i);
+              finalS = finalS + letter;
+            }
+          }
+        }else{
+          for(int x = 0; x < bLength; x++){
+            if(x<aLength){
+              char letter = a.charAt(x);
+              char letter2 = b.charAt(x);
+              finalS = finalS + letter + letter2;
+            }else{
+              char letter2 = b.charAt(x);
+              finalS = finalS + letter2;
+            }
+          }
+        }
+      }
+      return finalS;
     }
 
     /*
